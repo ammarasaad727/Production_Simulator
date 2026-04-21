@@ -87,7 +87,7 @@ def modified_arps(t, qi, di_annual_frac, b, c):
 # Robust date parsing and unit heuristics
 # ---------------------------
 def robust_parse_dates(series, dayfirst=False):
-    parsed = pd.to_datetime(series, errors='coerce', infer_datetime_format=True, dayfirst=dayfirst)
+    parsed = pd.to_datetime(series, errors='coerce', dayfirst=dayfirst)
     mask = parsed.isna() & series.notna()
     for idx in series[mask].index:
         val = series.loc[idx]
